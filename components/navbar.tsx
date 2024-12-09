@@ -1,18 +1,18 @@
 "use client";
 
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import { Button } from '@/components/ui/button';
-import { ShoppingCart, Sun, Moon, Search, Menu } from 'lucide-react';
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart, Sun, Moon, Search, Menu } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import UserMenu from './navbar/user-menu';
-import { useAuthStore } from '@/lib/store/auth-store';
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import UserMenu from "./navbar/user-menu";
+import { useAuthStore } from "@/lib/store/auth-store";
 
 export default function Navbar() {
   const { setTheme } = useTheme();

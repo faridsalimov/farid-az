@@ -8,9 +8,9 @@ import { hash } from "bcryptjs";
 export async function login(data: AuthFormData) {
   try {
     await connectDB();
-    
+
     const user = await User.findOne({ email: data.email.toLowerCase() });
-    
+
     if (!user) {
       return { success: false, error: "Email və ya şifrə yanlışdır" };
     }
@@ -25,7 +25,7 @@ export async function login(data: AuthFormData) {
 export async function register(data: AuthFormData) {
   try {
     await connectDB();
-    
+
     // Validate email format
     const emailRegex = /^\S+@\S+\.\S+$/;
     if (!emailRegex.test(data.email)) {
@@ -33,7 +33,9 @@ export async function register(data: AuthFormData) {
     }
 
     // Check if email already exists
-    const existingUser = await User.findOne({ email: data.email.toLowerCase() });
+    const existingUser = await User.findOne({
+      email: data.email.toLowerCase(),
+    });
     if (existingUser) {
       return { success: false, error: "Bu email artıq qeydiyyatdan keçib" };
     }
@@ -49,7 +51,7 @@ export async function register(data: AuthFormData) {
     }
 
     const hashedPassword = await hash(data.password, 12);
-    
+
     const user = await User.create({
       name: data.name.trim(),
       email: data.email.toLowerCase().trim(),
@@ -66,11 +68,11 @@ export async function register(data: AuthFormData) {
     return { success: true, user: safeUser };
   } catch (error: any) {
     console.error("Registration error:", error);
-    
+
     if (error.code === 11000) {
       return { success: false, error: "Bu email artıq qeydiyyatdan keçib" };
     }
-    
+
     return { success: false, error: "Qeydiyyat xətası baş verdi" };
   }
 }

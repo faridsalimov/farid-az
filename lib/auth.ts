@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
@@ -24,7 +24,10 @@ export const authOptions: NextAuthOptions = {
           throw new Error("İstifadəçi tapılmadı");
         }
 
-        const isPasswordValid = await compare(credentials.password, user.password);
+        const isPasswordValid = await compare(
+          credentials.password,
+          user.password
+        );
         if (!isPasswordValid) {
           throw new Error("Yanlış şifrə");
         }
@@ -35,11 +38,11 @@ export const authOptions: NextAuthOptions = {
           name: user.name,
           role: user.role,
         };
-      }
-    })
+      },
+    }),
   ],
   session: {
-    strategy: "jwt"
+    strategy: "jwt",
   },
   pages: {
     signIn: "/auth/login",
@@ -60,6 +63,6 @@ export const authOptions: NextAuthOptions = {
         session.user.role = token.role;
       }
       return session;
-    }
-  }
+    },
+  },
 };

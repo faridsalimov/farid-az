@@ -10,10 +10,7 @@ export default function LoginPage() {
           <CardTitle className="text-2xl text-center">Daxil ol</CardTitle>
         </CardHeader>
         <CardContent>
-          <AuthForm 
-            type="login"
-            onSubmit={login}
-          />
+          <AuthForm type="login" onSubmit={login} />
         </CardContent>
       </Card>
     </div>

@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 const categories = ["Elektronika", "Geyim", "Ev və Bağ", "İdman"];
 

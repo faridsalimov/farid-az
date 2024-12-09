@@ -28,8 +28,8 @@ export interface Order {
   items: OrderItem[];
   total: number;
   shippingAddress: ShippingAddress;
-  paymentStatus: 'pending' | 'completed' | 'failed';
-  orderStatus: 'processing' | 'shipped' | 'delivered' | 'cancelled';
+  paymentStatus: "pending" | "completed" | "failed";
+  orderStatus: "processing" | "shipped" | "delivered" | "cancelled";
   paymentMethod: string;
   createdAt: string;
 }

@@ -39,11 +39,15 @@ export default function ProfilePage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Ad</label>
+                <label className="text-sm font-medium text-muted-foreground">
+                  Ad
+                </label>
                 <p className="text-lg">{user.name}</p>
               </div>
               <div>
-                <label className="text-sm font-medium text-muted-foreground">Email</label>
+                <label className="text-sm font-medium text-muted-foreground">
+                  Email
+                </label>
                 <p className="text-lg">{user.email}</p>
               </div>
               <Button>Məlumatları Yenilə</Button>
@@ -57,7 +61,9 @@ export default function ProfilePage() {
               <CardTitle>Sifarişlərim</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Hələ ki heç bir sifariş yoxdur.</p>
+              <p className="text-muted-foreground">
+                Hələ ki heç bir sifariş yoxdur.
+              </p>
             </CardContent>
           </Card>
         </TabsContent>

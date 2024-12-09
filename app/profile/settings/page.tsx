@@ -71,7 +71,8 @@ export default function SettingsPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">
-              Hesabınızı silmək bütün məlumatlarınızın silinməsinə səbəb olacaq. Bu əməliyyat geri qaytarıla bilməz.
+              Hesabınızı silmək bütün məlumatlarınızın silinməsinə səbəb olacaq.
+              Bu əməliyyat geri qaytarıla bilməz.
             </p>
             <Button variant="destructive">Hesabı Sil</Button>
           </CardContent>

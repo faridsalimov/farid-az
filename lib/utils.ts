@@ -10,9 +10,9 @@ export function formatPrice(price: number): string {
 }
 
 export function formatDate(date: string): string {
-  return new Date(date).toLocaleDateString('az-AZ', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return new Date(date).toLocaleDateString("az-AZ", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }

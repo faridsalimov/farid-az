@@ -40,13 +40,14 @@ export default function CartItem({ item, onUpdate }: CartItemProps) {
           className="object-cover rounded-md"
         />
       </div>
-      
+
       <div className="flex-grow">
         <h3 className="font-semibold">{item.product.name}</h3>
         <p className="text-muted-foreground">
-          {item.product.price} ₼ × {item.quantity} = {item.product.price * item.quantity} ₼
+          {item.product.price} ₼ × {item.quantity} ={" "}
+          {item.product.price * item.quantity} ₼
         </p>
-        
+
         <div className="flex items-center gap-2 mt-2">
           <Button
             variant="outline"
@@ -56,9 +57,9 @@ export default function CartItem({ item, onUpdate }: CartItemProps) {
           >
             <Minus className="h-4 w-4" />
           </Button>
-          
+
           <span className="w-8 text-center">{item.quantity}</span>
-          
+
           <Button
             variant="outline"
             size="icon"

@@ -10,10 +10,7 @@ export default function RegisterPage() {
           <CardTitle className="text-2xl text-center">Qeydiyyat</CardTitle>
         </CardHeader>
         <CardContent>
-          <AuthForm 
-            type="register"
-            onSubmit={register}
-          />
+          <AuthForm type="register" onSubmit={register} />
         </CardContent>
       </Card>
     </div>

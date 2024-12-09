@@ -11,8 +11,9 @@ interface CartSummaryProps {
 
 export default function CartSummary({ cart }: CartSummaryProps) {
   const router = useRouter();
-  const subtotal = cart.items.reduce((total, item) => 
-    total + (item.product.price * item.quantity), 0
+  const subtotal = cart.items.reduce(
+    (total, item) => total + item.product.price * item.quantity,
+    0
   );
   const shipping = 10; // Fixed shipping cost
   const total = subtotal + shipping;
@@ -20,18 +21,18 @@ export default function CartSummary({ cart }: CartSummaryProps) {
   return (
     <div className="bg-card p-6 rounded-lg shadow-sm">
       <h2 className="text-lg font-semibold mb-4">Sifariş Xülasəsi</h2>
-      
+
       <div className="space-y-2">
         <div className="flex justify-between">
           <span>Məbləğ</span>
           <span>{formatPrice(subtotal)} ₼</span>
         </div>
-        
+
         <div className="flex justify-between">
           <span>Çatdırılma</span>
           <span>{formatPrice(shipping)} ₼</span>
         </div>
-        
+
         <div className="border-t pt-2 mt-2">
           <div className="flex justify-between font-semibold">
             <span>Cəmi</span>
@@ -39,8 +40,8 @@ export default function CartSummary({ cart }: CartSummaryProps) {
           </div>
         </div>
       </div>
-      
-      <Button 
+
+      <Button
         className="w-full mt-6"
         onClick={() => router.push("/checkout")}
         disabled={cart.items.length === 0}

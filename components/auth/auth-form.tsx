@@ -30,14 +30,16 @@ const registerSchema = loginSchema.extend({
 
 interface AuthFormProps {
   type: "login" | "register";
-  onSubmit: (data: AuthFormData) => Promise<{ success: boolean; error?: string }>;
+  onSubmit: (
+    data: AuthFormData
+  ) => Promise<{ success: boolean; error?: string }>;
 }
 
 export default function AuthForm({ type, onSubmit }: AuthFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-  
+
   const form = useForm<AuthFormData>({
     resolver: zodResolver(type === "login" ? loginSchema : registerSchema),
     defaultValues: {
@@ -50,10 +52,10 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
   const handleSubmit = async (data: AuthFormData) => {
     setLoading(true);
     setError(null);
-    
+
     try {
       const result = await onSubmit(data);
-      
+
       if (result.success) {
         router.push("/");
       } else {
@@ -98,11 +100,11 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input 
-                  type="email" 
-                  placeholder="Email ünvanınızı daxil edin" 
+                <Input
+                  type="email"
+                  placeholder="Email ünvanınızı daxil edin"
                   autoComplete={type === "login" ? "username" : "email"}
-                  {...field} 
+                  {...field}
                 />
               </FormControl>
               <FormMessage />
@@ -117,11 +119,13 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
             <FormItem>
               <FormLabel>Şifrə</FormLabel>
               <FormControl>
-                <Input 
-                  type="password" 
-                  placeholder="Şifrənizi daxil edin" 
-                  autoComplete={type === "login" ? "current-password" : "new-password"}
-                  {...field} 
+                <Input
+                  type="password"
+                  placeholder="Şifrənizi daxil edin"
+                  autoComplete={
+                    type === "login" ? "current-password" : "new-password"
+                  }
+                  {...field}
                 />
               </FormControl>
               <FormMessage />
@@ -131,21 +135,31 @@ export default function AuthForm({ type, onSubmit }: AuthFormProps) {
 
         <div className="flex flex-col gap-4">
           <Button type="submit" disabled={loading}>
-            {loading ? "Gözləyin..." : type === "login" ? "Daxil ol" : "Qeydiyyatdan keç"}
+            {loading
+              ? "Gözləyin..."
+              : type === "login"
+              ? "Daxil ol"
+              : "Qeydiyyatdan keç"}
           </Button>
 
           <div className="text-center text-sm text-muted-foreground">
             {type === "login" ? (
               <>
                 Hesabınız yoxdur?{" "}
-                <Link href="/auth/register" className="text-primary hover:underline">
+                <Link
+                  href="/auth/register"
+                  className="text-primary hover:underline"
+                >
                   Qeydiyyatdan keçin
                 </Link>
               </>
             ) : (
               <>
                 Artıq hesabınız var?{" "}
-                <Link href="/auth/login" className="text-primary hover:underline">
+                <Link
+                  href="/auth/login"
+                  className="text-primary hover:underline"
+                >
                   Daxil olun
                 </Link>
               </>

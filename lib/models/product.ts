@@ -1,36 +1,38 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please provide a product name'],
+    required: [true, "Please provide a product name"],
     trim: true,
   },
   description: {
     type: String,
-    required: [true, 'Please provide a product description'],
+    required: [true, "Please provide a product description"],
   },
   price: {
     type: Number,
-    required: [true, 'Please provide a product price'],
-    min: [0, 'Price cannot be negative'],
+    required: [true, "Please provide a product price"],
+    min: [0, "Price cannot be negative"],
   },
-  images: [{
-    type: String,
-    required: [true, 'Please provide at least one product image'],
-  }],
+  images: [
+    {
+      type: String,
+      required: [true, "Please provide at least one product image"],
+    },
+  ],
   category: {
     type: String,
-    required: [true, 'Please provide a product category'],
+    required: [true, "Please provide a product category"],
   },
   stock: {
     type: Number,
-    required: [true, 'Please provide stock quantity'],
-    min: [0, 'Stock cannot be negative'],
+    required: [true, "Please provide stock quantity"],
+    min: [0, "Stock cannot be negative"],
   },
   seller: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
   createdAt: {
@@ -39,4 +41,5 @@ const productSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.models.Product || mongoose.model('Product', productSchema);
+export default mongoose.models.Product ||
+  mongoose.model("Product", productSchema);

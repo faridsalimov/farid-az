@@ -17,8 +17,9 @@ export async function createOrder(orderData: OrderData) {
     }
 
     // Get user's cart
-    const cart = await Cart.findOne({ user: session.user.id })
-      .populate('items.product');
+    const cart = await Cart.findOne({ user: session.user.id }).populate(
+      "items.product"
+    );
 
     if (!cart || cart.items.length === 0) {
       return { success: false, error: "Səbətiniz boşdur" };
@@ -56,7 +57,7 @@ export async function getUserOrders() {
     }
 
     const orders = await Order.find({ user: session.user.id })
-      .populate('items.product')
+      .populate("items.product")
       .sort({ createdAt: -1 });
 
     return { success: true, orders };
